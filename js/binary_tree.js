@@ -193,8 +193,11 @@ class BinaryTree {
     heightVisitor(node) {
         if (!node)
             return -1
+        //visita a esquerda e retorna a altura dela
         let leftHeight = this.heightVisitor(node.left),
+            //visita a direita e retorna a altura dela
             rightHeight = this.heightVisitor(node.right)
+        //diz quem é maior, se é a esquerda ou a direita
         return Math.max(leftHeight, rightHeight) + 1
     }
 
@@ -203,6 +206,7 @@ class BinaryTree {
         return this.sizeVisitor(this.root)
     }
 
+   //navega todos os nós da árvore e retorna quantos nós tem
     sizeVisitor(node) {
         if (!node)
             return 0
