@@ -6,36 +6,55 @@ class BinaryTree {
 
     //exibe o menor valor da arvore
     min() {
+        //current recebe o valor de root 
         let current = this.root
+        //compara se current é nulo
         if (current == null)
+            //retorna nulo
             return null
+        //enquanto o valor da esquerda for diferente de nulo
         while (current.left != null)
+            //cureent recebe o valor da esquerda
             current = current.left
+        //retorna o conteúdo de current
         return current.content
     }
 
     //exibe o maior valor da arvore
     max() {
+       //current recebe o valor de root
         let current = this.root
+       //compara se current é nulo
         if (current == null)
+           //se current for nulo, retorna nulo
             return null
+        // enquanto current.right for diferente de nulo
         while (current.right != null)
+          //current recebe o valor da direita
             current = current.right
+       //retorna o conteúdo de current
         return current.content
     }
 
-    //insere o elemento da arvores
+    //insere o elemento da arvore
     insert(element) {
+        //root recebe o valor que foi inserido
         this.root = this.insertNode(this.root, element)
     }
 
+    //insere o nó na árvore
     insertNode(rootNode, element) {
+        //compara se o valor do nó é nulo
         if (rootNode == null)
+            //se o nó for nulo retorna o elemento inserido
             return new Node(element)
+        //se o elemento for maior do que o nó de referência, insere o elemento na direita
         if (element > rootNode.content)
             rootNode.right = this.insertNode(rootNode.right, element)
+        //se o elemento for menor do que o nó de referência, insere o elemento na esquerda
         else
             rootNode.left = this.insertNode(rootNode.left, element)
+        //retorna o nó
         return rootNode
     }
 
