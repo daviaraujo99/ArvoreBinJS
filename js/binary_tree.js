@@ -60,27 +60,36 @@ class BinaryTree {
 
     //executa a função callback para cada nó, em ordem
     inOrderTraverse(callback) {
+        //mostra primeiro a esquerda
         this.inOrderVisitor(this.root, callback)
     }
 
     inOrderVisitor(node, callback) {
+       // se o nó for nulo
         if (node == null)
+          //retorna o valor do nó da esquerda
             return
         this.inOrderVisitor(node.left, callback)
+        //executa a função callback e mostra o nó no conteúdo
         callback(node.content)
         this.inOrderVisitor(node.right, callback)
     }
 
     //executa a função callback para cada nó, em pré-ordem
     preOrderTraverse(callback) {
+       //retorna o valor da raiz
         this.preOrderVisitor(this.root, callback)
     }
 
     preOrderVisitor(node, callback) {
+        //compara se o nó é nulo 
         if (node == null)
-            return
+            return 
+        //primeiro mostra o conteúdo da raiz 
         callback(node.content)
+        // depois mostra o conteúdo da esquerda
         this.preOrderVisitor(node.left, callback)
+        //por último mostra o conteúdo da direita
         this.preOrderVisitor(node.right, callback)
     }
 
